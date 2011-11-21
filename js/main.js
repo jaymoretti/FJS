@@ -1,5 +1,5 @@
 $(function(){
-	require(["abstractview", "film", "challenge", "blog", "menu", "viewmanager"],
+	require(["display/abstractview", "views/film", "views/challenge", "views/blog", "menu/menu", "display/viewmanager"],
 		function() {
       		Menu.init('film');
       		ViewManager.init('film');
