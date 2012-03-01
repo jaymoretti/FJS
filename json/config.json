@@ -1,0 +1,58 @@
+{
+	"folders"	:	{
+						"assets"	: "assets/",
+						"images"	: "images/",
+						"sections"	: "prototypes/",
+						"structure" : "structure/"
+					},
+	"preload"	:	[
+							"lookbook.html",
+							"loader.html",
+							"nav.html"
+
+					],
+	"pages"		:	[
+						{
+							"id"	: "Heritage",
+							"title" : "Heritage",
+							"assets": "heritage/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "Rain",
+							"title" : "Rain",
+							"assets": "rain/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "Buttons",
+							"title" : "Buttons Overlay",
+							"assets": "buttons-overlay/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "Cargo",
+							"title" : "Cargo",
+							"assets": "cargo/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "Drag",
+							"title" : "Drag",
+							"assets": "drag/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "Cards",
+							"title" : "Card Flip",
+							"assets": "card-flip/assets.html",
+							"chapters" : []
+						},
+						{
+							"id"	: "LightSwitch",
+							"title"	: "Light Switch",
+							"assets": "lightswitch/assets.html",
+							"chapters" : []
+						}
+					]
+}
