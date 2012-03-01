@@ -1,45 +1,83 @@
-ViewManager = {
-	sections : {
-				film : new Film(), 
-				challenge : new Challenge(), 
-				blog : new Blog()
-			   },
-	modules : {
-				videolib : $(".videolib"),
-				divedeeper : $(".divedeeper"),
-				helpbig : $(".helpbig"),
-				helpsmall : $(".helpsmall"),
-				thefilm : $(".thefilm"),
-			  },
-
-	current : null,
-
-	init : function (id)
-	{
-		ViewManager.set(id);
-	},
+function ViewManager()
+{
+	this.sections = [];
+	this.current = null;
+	this.currentCount = 0;
+	this.currentChapter = 0;
+	var scope = this;
+	var currentId = "";
+	this.overlayOpen = false;
 	
-	set : function (id)
+	this.pageExists = function(id)
 	{
-		// check if there's already a section on and that it's not the same as the current
-		// then fade out the current and set up the next one. 
-		if(ViewManager.current!=null && ViewManager.sections[id] != ViewManager.current)
+		if(this.sections[id.toString().toLowerCase()])
+			return true;
+
+		return false;
+	};
+
+	this.set = function(id){
+		currentId = id;
+		if(!this.pageExists(id))
 		{
-			ViewManager.current.animateOut();
-			ViewManager.current = ViewManager.sections[id];
-		}else{
-			ViewManager.sections[id].init();
-			ViewManager.current = ViewManager.sections[id];
+			_application.preloader.load(_json.pages[scope.getIndex(id)],
+				function()
+				{
+					scope.sections[id.toString().toLowerCase()] = new window[id]();
+					scope.showPage();
+				});
+			
+		} else {
+			scope.showPage();
 		}
-	}, 
+	};
 
-	animationOutComplete : function()
+	this.showPage = function()
 	{
-		if(!ViewManager.current.ready)
-			ViewManager.current.init();
-		else
-			ViewManager.current.animateIn();
-	}
+		if(scope.current)
+			scope.current.stop();
 
+		scope.currentCount = scope.getIndex(currentId);
 
+		scope.current = scope.sections[currentId.toString().toLowerCase()];
+
+		scope.current.init();
+	};
+
+	this.next = function()
+	{
+		if(scope.currentCount < _json.pages.length-1)
+		{
+			scope.currentCount++;
+			scope.set(_json.pages[scope.currentCount].id);
+		}
+	};
+
+	this.prev = function()
+	{
+		if(scope.currentCount > 0)
+		{
+			scope.currentCount--;
+			scope.set(_json.pages[scope.currentCount].id);
+		}
+	};
+
+	this.getIndex = function(id)
+	{
+		for(var i =0; i!=_json.pages.length; i++)
+		{
+			if(_json.pages[i].id == id)
+			{
+				return i;
+			}
+		}
+		return null;
+	};
+
+	this.gotoFrame = function (frameNumber)
+	{
+
+	};
 }
+
+ViewManager.prototype = {};
