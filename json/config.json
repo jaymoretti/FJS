@@ -13,46 +13,31 @@
 					],
 	"pages"		:	[
 						{
-							"id"	: "Heritage",
-							"title" : "Heritage",
-							"assets": "heritage/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "Rain",
-							"title" : "Rain",
-							"assets": "rain/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "Buttons",
-							"title" : "Buttons Overlay",
-							"assets": "buttons-overlay/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "Cargo",
-							"title" : "Cargo",
-							"assets": "cargo/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "Drag",
-							"title" : "Drag",
-							"assets": "drag/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "Cards",
-							"title" : "Card Flip",
-							"assets": "card-flip/assets.html",
-							"chapters" : []
-						},
-						{
-							"id"	: "LightSwitch",
-							"title"	: "Light Switch",
-							"assets": "lightswitch/assets.html",
-							"chapters" : []
+							"id"	: "Section1",
+							"title" : "Section Name",
+							"assets": "section1/assets.html",
+							"chapters" : [
+											{ 
+												"id": "SubSection1", 
+												"title": "Sub Section 1",
+												"assets" : "subsection1/assets.html"
+											},
+											{ 
+												"id": "SubSection2", 
+												"title": "Sub Section 2",
+												"assets" : "subsection2/assets.html"
+											},
+											{ 
+												"id": "SubSection3", 
+												"title": "Sub Section 3",
+												"assets" : "subsection1/assets.html"
+											},
+											{ 
+												"id": "SubSection4", 
+												"title": "Sub Section 4",
+												"assets" : "subsection1/assets.html"
+											}
+							]
 						}
 					]
 }
